@@ -59,4 +59,7 @@ set completeopt=longest,menuone
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-Bundle 'shawncplus/phpcomplete.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Bundle 'joonty/vdebug.git'
+
+let g:vdebug_options = { "break_on_open" : 0, "continuous_mode" : 1 }
