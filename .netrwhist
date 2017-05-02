@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/private/etc/apache2/users'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/var/www/html/rotary_org/sites/all/modules/custom/rotary_rotaryorg_rss_data'
+let g:netrw_dirhist_2='/var/www/html/rotary_org/sites/all/modules/custom'
+let g:netrw_dirhist_3='/var/www/html/rotary_org/sites/all/modules/custom/data_export'
+let g:netrw_dirhist_4='/home/fireballs/.vim'
+let g:netrw_dirhist_5='/home/fireballs/.vim/color-scheme-holokai-for-vim'
+let g:netrw_dirhist_6='/home/fireballs/.vim'
+let g:netrw_dirhist_7='/home/fireballs/.vim/colors'
+let g:netrw_dirhist_8='/home/fireballs/.vim'

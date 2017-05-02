@@ -1,65 +1,70 @@
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim
+set rtp+=/home/fireballs/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
+" Provides the vertical indentation lines.
+Plugin 'Yggdroot/indentLine'
+
+" Advanced completion.
+Plugin 'shawncplus/phpcomplete.vim'
+
+"Syntax highlighting
+Plugin 'vim-syntastic/syntastic'
+
+" Test Debugger
+Plugin 'joonty/vdebug'
+
+" NerdTree
+Plugin 'scrooloose/nerdtree'
+
+" Autocompletion
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+set shiftwidth=2
 set nu
-set shiftwidth=4
+set tabstop=2
 set expandtab
 set smartindent
+set winheight=40
+set winwidth=50
+set mouse=n
+set autochdir
+set guifont=Menlo\ Bold\ 8
 syntax on
-color slate
 
-set runtimepath+=~/.vim
 
-execute pathogen#infect()
+"Color settings
+color evening
+
+"Highlight text that is over 80 characters
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight Comment ctermfg=Magenta
+highlight string ctermfg=green
+match OverLength /\%81v.\+/
 
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
-set completeopt=longest,menuone
+"let g:dbgPavimOnce = 1
+"let g:dbgPavimKeyRun = '<S-TAB>'
 
-Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-Plugin 'shawncplus/phpcomplete.vim'
-Bundle 'joonty/vdebug.git'
+let g:vdebug_options = {
+      \"watch_window_style" : "compact",
+      \"break_on_open" : 0,
+      \"continuous_mode" : 1,
+\}
+let g:dbgPavimPort = 9008
 
-let g:vdebug_options = { "break_on_open" : 0, "continuous_mode" : 1 }
+" Map NERDTree to Shift + Tab.
+map <S-TAB> :NERDTreeToggle<CR>
+
+set tags=/var/www/html/rotary_org/tags
