@@ -43,10 +43,10 @@ syntax on
 
 
 "Color settings
-color evening
+color holokai
 
 "Highlight text that is over 80 characters
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength ctermbg=white ctermfg=red guibg=#592929
 highlight Comment ctermfg=Magenta
 highlight string ctermfg=green
 match OverLength /\%81v.\+/
@@ -68,3 +68,7 @@ let g:dbgPavimPort = 9008
 map <S-TAB> :NERDTreeToggle<CR>
 
 set tags=/var/www/html/rotary_org/tags
+set guioptions -=m
+set guioptions -=T
+"set lines=N columns=N
+set guifont=courier\ bold\ 11
